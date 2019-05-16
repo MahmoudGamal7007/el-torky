@@ -1,0 +1,14 @@
+nav{
+  direction: rtl;
+  background-color: rgb(244, 244, 245);
+  & .navbar-brand{
+    color: rgb(108, 108, 108) !important;
+  }
+  & .navbar-collapse{
+    direction: ltr;
+  }
+}
+.activateBoxShadow{
+  box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
+  transition: all 0.4s ease;
+}

@@ -1,0 +1,27 @@
+<app-navbar [User]="User"></app-navbar>
+<header>
+  <div class="container">
+    <div class="row justify-content-center">
+      <form [formGroup]="form" class="col-5" (ngSubmit)="onSubmit()">
+        <div class="form-group col-12 px-0">
+          <label for="exampleInputEmail1">البريد الإلكتروني</label>
+          <input type="email" formControlName="email" name="email" class="form-control" id="exampleInputEmail1"
+            aria-describedby="emailHelp" placeholder="أدخل بريدك الإلكتروني">
+          <div *ngIf="email.status == 'INVALID' && email.touched" class="alert alert-danger mt-3">
+            البريد الإلكتروني غير صالح
+          </div>
+        </div>
+        <div class="form-group col-12 px-0">
+          <label for="exampleInputPassword1">كلمة السر</label>
+          <input type="password" formControlName="password" name="password" class="form-control"
+            id="exampleInputPassword1" placeholder="أدخل كلمة سر قوية مثل ht$TrGy8j87B5d%g$j">
+            <div *ngIf="password.status == 'INVALID' && password.touched" class="alert alert-danger mt-3">
+              من فضلك أدخل كلمة سر قوية تتكون على الأقل من 8 أحرف
+            </div>
+        </div>
+        <button type="submit" [disabled]="email.status=='INVALID' || password.status=='INVALID'"
+          class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</header>

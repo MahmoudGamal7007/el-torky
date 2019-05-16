@@ -1,0 +1,65 @@
+<app-navbar [User]="User"></app-navbar>
+<header>
+  <div class="container">
+    <div class="row justify-content-center">
+      <h2 class="col-12 text-center pt-5">أضف منتجاََ</h2>
+      <form enctype="multipart/form-data" [formGroup]="form" class="col-lg-6 col-sm-12 pb-3" id="formData" [ngStyle]="{'direction': 'rtl', 'text-align': 'right'}">
+        <!-- the name of the product -->
+        <div class="form-group">
+          <label for="productName">اسم المنتج</label>
+          <input type="text" class="form-control" formControlName="name" name="name" id="productName" placeholder="ادخل الاسم بشكل مفصل">
+        </div>
+
+        <!-- the name of the product -->
+        <div class="form-group">
+          <label for="productPrice">السعر بالجنيه المصري</label>
+          <input type="number" class="form-control" formControlName="price" name="price" id="productPrice" placeholder="ادخل السعر">
+        </div>
+
+
+        <!-- the category and the material -->
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="selectCategory">القسم</label>
+            <select name="category" formControlName="category" id="selectCategory" class="form-control">
+              <option disabled>إختر القسم</option>
+              <option value="أباليك">أباليك</option>
+              <option value="اطباق">اطباق</option>
+              <option value="خواتم">خواتم</option>
+              <option value="ثريا">ثريا</option>
+              <option value="أنتيكة">أنتيكة</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="selectCategory">الخامة</label>
+            <select name="material" formControlName="material" id="selectCategory" class="form-control">
+              <option disabled>إختر الخامة</option>
+              <option value="فضة">فضة</option>
+              <option value="نحاس">نحاس</option>
+              <option value="سبيكة">سبيكة</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- the description of the product -->
+        <div class="form-group">
+          <label for="productDesc">الوصف</label>
+          <textarea name="description" formControlName="description" id="productDesc" cols="30" rows="4"placeholder="ضع وصفا جيدا" class="form-control"></textarea>
+        </div>
+        <!-- the big picture for the product -->
+        <div class="form-group">
+          <label for="customFile1">صورة المنتج</label>
+          <input type="file" name="myImage" formControlName="image" (change)="onSelectImage($event)" class="form-control-file btn btn-secondary" id="customFile1">
+        </div>
+
+        <button type="submit" [disabled]="form.status == 'INVALID' || image.value.length == 0" (click)="onSubmit()" class="btn btn-primary file-upload-button">تأكيد</button>
+      </form>
+    </div>
+  </div>
+  <app-modal [message]=""></app-modal>
+</header>
+
+
+
+
+<app-footer></app-footer>

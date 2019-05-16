@@ -1,0 +1,52 @@
+<app-navbar [User]="User"></app-navbar>
+<header class="bg-light py-4">
+  <div class="container">
+    <div class="row justify-content-center">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputYourName">Your Name</label>
+            <input type="text" formControlName="firstName" name="firstName" class="form-control" id="inputYourName"
+              placeholder="first name">
+            <div *ngIf="firstName.status == 'INVALID' && firstName.touched" class="alert alert-danger mt-3">
+              Pls . Enter your name
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputLastName">Last Name</label>
+            <input type="text" formControlName="lastName" class="form-control" id="inputLastName"
+              placeholder="last name">
+            <div *ngIf="lastName.status == 'INVALID' && lastName.touched" class="alert alert-danger mt-3">
+              Pls . Enter your father name
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail">Email</label>
+          <input type="email" formControlName="email" class="form-control" id="inputEmail"
+            placeholder="enter your email">
+          <div *ngIf="email.status == 'INVALID' && email.touched && email.errors.email" class="alert alert-danger mt-3">
+            invalid email
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" formControlName="password" id="password"
+            placeholder="Insert a powerful password">
+          <div *ngIf="password.status == 'INVALID' && password.touched" class="alert alert-danger mt-3">
+            Pls . Enter your password
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="passwordConfirmation">Confirm Password</label>
+          <input type="password" class="form-control" formControlName="passwordConfirmation" id="passwordConfirmation"
+            placeholder="confirm your password">
+            <div *ngIf="passwordConfirmation.touched && passwordConfirmation.value != password.value" class="alert alert-danger mt-3">
+              Sorry .. this field doesn't match the password field
+            </div>  
+        </div>
+        <button type="submit" [disabled]="firstName.status == 'INVALID' || lastName.status == 'INVALID' || email.status == 'INVALID' || password.status == 'INVALID' || passwordConfirmation.status == 'INVALID' || password.value != passwordConfirmation.value" class="btn btn-primary">Sign in</button>
+      </form>
+    </div>
+  </div>
+</header>

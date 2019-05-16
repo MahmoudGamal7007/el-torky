@@ -1,0 +1,82 @@
+<app-navbar [User]="User"></app-navbar>
+<header [ngStyle]="{height: headerHeight+'px'}" class="mb-3">
+	<div class="container-fluid">
+		<div class="row d-none d-sm-flex">
+			<div id="carouselExampleFade" class="carousel slide carousel-fade col-9 float-right" data-ride="carousel">
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img
+							src="https://images.unsplash.com/photo-1553364048-7b4ddc22e1d1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=814&q=80"
+							class="d-block img-fluid mx-auto" alt="...">
+					</div>
+				</div>
+				<a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+			<div class="col-3 py-5 text-center">
+				<h3 class="text-center">عنوان بحجم مناسب</h3>
+				<button class="btn btn-primary" (click)="test()">Test</button>
+			</div>
+		</div>
+	</div>
+</header>
+
+<section class="firstSlider">
+	<div class="container-fluid text-center my-3">
+		<div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
+			<div class="carousel-inner w-100" role="listbox">
+				<div class="carousel-item row no-gutters active">
+					<div class="col-3 float-left" *ngFor="let prod of Products1">
+						<a href="/product/{{prod.name}}/{{prod.id}}?img_href={{prod.md_image}}&cat={{prod.category}}&mat={{prod.material}}" class="d-block"><img class="img-fluid" src="assets/uploads/{{prod.sm_image}}"></a>
+					</div>
+				</div>
+				<div class="carousel-item row no-gutters">
+					<div class="col-3 float-left" *ngFor="let prod of Products2">
+						<a href="/product/{{prod.name}}/{{prod.id}}?img_href={{prod.md_image}}&cat={{prod.category}}&mat={{prod.material}}" class="d-block"><img class="img-fluid" src="assets/uploads/{{prod.sm_image}}"></a>
+					</div>
+				</div>
+			</div>
+			<a class="carousel-control-prev" href="#recipeCarousel" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next" href="#recipeCarousel" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+	</div>
+</section>
+
+
+
+<!-- the General Products -->
+
+<section class="general">
+	<div class="container">
+		<div class="row">
+			<a routerLink="/ring/1" class="d-block text-center col">
+				Test this Link
+			</a>
+			<a routerLink="/ring/2" class="d-block text-center col">
+				Test this Link
+			</a>
+			<a routerLink="/ring/3" class="d-block text-center col">
+				Test this Link
+			</a>
+			<a routerLink="/ring/4" class="d-block text-center col">
+				Test this Link
+			</a>
+		</div>
+	</div>
+</section>
+
+
+<!-- The website Footer -->
+<app-footer></app-footer>

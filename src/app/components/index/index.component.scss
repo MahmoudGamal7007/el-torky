@@ -1,0 +1,8 @@
+
+header{
+  overflow: hidden;
+  margin-top: 56px;
+  & .carousel-item img{
+    width: 100%;
+  }
+}
